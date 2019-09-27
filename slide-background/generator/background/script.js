@@ -45,17 +45,18 @@ var roadie = [
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', initMap);
 
-opts = [];
-for (name in places) {
+const opts = [];
+for (let name in places) {
   opts.push(name);
 }
 
-var place = places[_location];
+var place = places[_location || 'helsinki'];
 
 var map = null;
 var mapElement = null;
 
 function initMap() {
+  console.log(place, _location);
   var mapOptions = {
     // How zoomed in you want the map to start at (always required)
     zoom: 16,
